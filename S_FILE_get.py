@@ -54,7 +54,7 @@ class MyRequestHandler(socketserver.BaseRequestHandler):
                 et = time.time()
                 receive_speed = self.filesize / 1024.0 / et
                 print("Ending...,the time:",time.time()-st)
-                print('the speed: {speed} pers'.format(speed=receive_speed))
+                print('the speed: {speed}  KB/s'.format(speed=receive_speed))
 
 try:
     print('Waiting...')
