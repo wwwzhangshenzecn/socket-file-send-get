@@ -12,6 +12,12 @@ HOST = '' # 允许通过的链接的IP
 PORT = 50000 # 指定端口
 ADDR = (HOST,PORT)
 
+# 获取本机计算机名称
+hostname = socket.gethostname()
+# 获取本机ip
+ip = socket.gethostbyname(hostname)
+print(ip)
+
 class MyRequestHandler(socketserver.BaseRequestHandler):
     def handle(self):
 
@@ -54,7 +60,7 @@ class MyRequestHandler(socketserver.BaseRequestHandler):
                 et = time.time()
                 receive_speed = self.filesize / 1024.0 / et
                 print("Ending...,the time:",time.time()-st)
-                print('the speed: {speed}  KB/s'.format(speed=receive_speed))
+                print('the speed: {speed} per KB'.format(speed=receive_speed))
 
 try:
     print('Waiting...')
